@@ -47,6 +47,12 @@
         "description": "Resource ID for existing vnet/subnet to which VM NICs should be attached"
       }
     },
+    "asgNameUri": {
+      "type": "string",
+      "metadata": {
+        "description": "Resource ID for existing ASG to which VM NICs should be attached"
+      }
+    },
     "vmSize": {
       "type": "string",
       "metadata": {
@@ -187,7 +193,8 @@
             "properties": {
               "privateIPAllocationMethod": "Dynamic",
               "subnet": {
-                "id": "[parameters('nicSubnetUri')]"
+                "id": "[parameters('nicSubnetUri')]",
+                "applicationSecurityGroups": [ { "id": "[parameters('asgNameUri')]" } ]
               }
             }
           }

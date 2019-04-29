@@ -89,6 +89,12 @@
         "description": "Name of the existing subnet in the existing VNET to which the S2D VMs should be deployed"
       }
     },
+    "asgName": {
+      "type": "string",
+      "metadata": {
+        "description": "The ASG for the VM"
+      }
+    },
     "sofsName": {
       "type": "string",
       "metadata": {
@@ -119,7 +125,8 @@
   "variables": {
     "subnetRef": "[resourceId(parameters('existingVirtualNetworkRGName'),'Microsoft.Network/virtualNetworks/subnets',parameters('existingVirtualNetworkName'),parameters('existingSubnetName'))]",
     "deployS2DClusterTemplateURL": "[concat(parameters('_artifactsLocation'),'/nestedtemplates/deploy-s2d-cluster.json',parameters('_artifactsLocationSasToken'))]",
-    "deployS2DCluster": "deployS2DCluster"
+    "deployS2DCluster": "deployS2DCluster",
+    "asgID": "[resourceId(parameters('existingVirtualNetworkRGName'), 'Microsoft.Network/applicationSecurityGroups', parameters('asgName'))]"
   },
   "resources": [
     {
@@ -151,6 +158,9 @@
           },
           "nicSubnetUri": {
             "value": "[variables('subnetRef')]"
+          },
+          "asgNameUri": {
+            "value": "[variables('asgID')]"
           },
           "vmSize": {
             "value": "[parameters('vmSize')]"
