@@ -192,10 +192,8 @@
             "name": "ipconfig1",
             "properties": {
               "privateIPAllocationMethod": "Dynamic",
-              "subnet": {
-                "id": "[parameters('nicSubnetUri')]",
-                "applicationSecurityGroups": [ { "id": "[parameters('asgNameUri')]" } ]
-              }
+              "subnet": { "id": "[parameters('nicSubnetUri')]" },
+              "applicationSecurityGroups": [ { "id": "[parameters('asgNameUri')]" } ]
             }
           }
         ]
