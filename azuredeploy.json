@@ -71,6 +71,35 @@
         "description": "Password for the Administrator account of the existing Active Directory Domain"
       }
     },
+    "joinIntoDomain": {
+      "type": "string",
+      "defaultValue": "no",
+      "allowedValues": [
+          "no",
+          "yes"
+        ],
+      "metadata": {"description": "Does this VM needs to join an AD Domain? (yes/no)"}
+    },
+    "domainToJoin": {
+      "type": "string",
+      "defaultValue": "next.loc",
+      "metadata": {"description": "The FQDN of the AD domain"}
+    },
+    "domainUsername": {
+      "type": "string",
+      "defaultValue": "s_sdc1_AZURE",
+      "metadata": {"description": "Username of the account on the domain"}
+    },
+    "domainPassword": {
+      "type": "securestring",
+      "defaultValue": "**************",
+      "metadata": {"description": "Password of the account on the domain"}
+    },
+    "ouPath": {
+      "type": "string",
+      "defaultValue": "OU=Resources;OU=AzureVM ARM;OU=Transverse services;DC=next;DC=loc",
+      "metadata": {"description": "Specifies an organizational unit (OU) for the domain account. Enter the full distinguished name of the OU in quotation marks. Example: 'OU=testOU; DC=domain; DC=Domain; DC=com"}
+    },
     "existingVirtualNetworkRGName": {
       "type": "string",
       "metadata": {
@@ -152,6 +181,21 @@
           },
           "adminPassword": {
             "value": "[parameters('adminPassword')]"
+          },
+          "joinIntoDomain": {
+            "value": "[parameters('joinIntoDomain')]"
+          },
+          "domainToJoin": {
+            "value": "[parameters('domainToJoin')]"
+          },
+          "domainUsername": {
+            "value": "[parameters('domainUsername')]"
+          },
+          "domainPassword": {
+            "value": "[parameters('domainPassword')]"
+          },
+          "ouPath": {
+            "value": "[parameters('ouPath')]"
           },
           "storageAccountType": {
             "value": "[parameters('storageAccountType')]"
