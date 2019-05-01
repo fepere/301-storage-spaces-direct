@@ -296,7 +296,7 @@
       "condition": "[equals(parameters('joinIntoDomain'),'yes')]",
       "apiVersion": "2016-03-30",
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(variables('vmNamePrefix'),copyindex(2),'/JoinDomain')]",
+      "name": "[concat(variables('vmNamePrefix'),'2/JoinDomain')]",
       "location": "[parameters('vmLocation')]",
       "dependsOn": ["virtualMachineLoop"],
       "properties": 
