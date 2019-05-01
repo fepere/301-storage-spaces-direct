@@ -297,7 +297,7 @@
       "apiVersion": "2016-03-30",
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat(variables('vmNamePrefix'),'2/JoinDomain')]",
-      "location": "[parameters('vmLocation')]",
+      "location": "[parameters('Location')]",
       "dependsOn": ["virtualMachineLoop"],
       "properties": 
           {
@@ -356,7 +356,7 @@
       "apiVersion": "2016-03-30",
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat(variables('vmNamePrefix'),'1/JoinDomain')]",
-      "location": "[parameters('vmLocation')]",
+      "location": "[parameters('Location')]",
       "dependsOn": [
         "virtualMachineLoop",
         "virtualMachineExtensionLoop",
