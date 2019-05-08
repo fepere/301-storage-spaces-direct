@@ -161,7 +161,7 @@
     "witnessStorageType": "Standard_LRS",
     "vmNamePrefix": "[concat(parameters('namePrefix'))]",
     "vmAvailabilitySetName": "[concat('sdc305608w002-avst')]",
-    "clusterName": "[concat('clsdc305608w012')]",
+    "clusterName": "[concat('clsdc305608c012')]",
     "vmLoopTemplateURL": "[concat(parameters('_artifactsLocation'),'/nestedtemplates/newVM.json',parameters('_artifactsLocationSasToken'))]",
     "s2dPrepModulesURL": "[concat(parameters('_artifactsLocation'),'/dsc/prep-s2d.ps1.zip',parameters('_artifactsLocationSasToken'))]",
     "s2dPrepFunction": "PrepS2D.ps1\\PrepS2D",
